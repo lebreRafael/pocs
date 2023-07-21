@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="minimum-scale=1, initial-scale=1, width=device-width, maximum-scale=2"
+    />
+  </head>
+  <body>
+    <script>
+      function handleClick() {
+        fetch('https://pokeapi.co/api/v2/pokemon/ditto').then((res) => res.json()).then((resJson) => {
+          const h1 = document.createElement('h1');
+          h1.innerText = resJson.name;
+          document.querySelector('body').appendChild(h1);
+        })
+        // for (let x = 0; x < 5000; x++) {
+        //   console.log("test");
+        // }
+      }
+    </script>
+    <button onclick="handleClick()">fetch API and create H1</button>
+  </body>
+</html>
