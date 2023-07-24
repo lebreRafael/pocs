@@ -13,7 +13,7 @@ const listperPage = [
   ],
 ]
 
-export default function Batman({searchParams}) {
+export default function BatmanPage({searchParams}) {
   const { page = 1 } = searchParams;
   const [getValue, setValue] = store();
   console.log(1111111111, 'robin', page, getValue()?.currentTime);
