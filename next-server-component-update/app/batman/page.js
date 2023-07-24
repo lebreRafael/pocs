@@ -1,4 +1,6 @@
+import InnerServerComponent from './inner-server-component';
 import PaginationTrigger from './paination-trigger';
+import store from './store';
 
 const listperPage = [
   [
@@ -13,7 +15,10 @@ const listperPage = [
 
 export default function Batman({searchParams}) {
   const { page = 1 } = searchParams;
-  console.log(1111111111, 'batman', page);
+  const [getValue, setValue] = store();
+  console.log(1111111111, 'robin', page, getValue()?.currentTime);
+  setValue({currentTime: (new Date).getTime()});
+  console.log(1111111111, 'batman', page, getValue()?.currentTime);
  
   return (
     <div>
@@ -22,7 +27,8 @@ export default function Batman({searchParams}) {
           <div>{data.name}</div>
         );
       })}
-      <PaginationTrigger/>
+      <PaginationTrigger currentTime={getValue()?.currentTime}/>
+      <InnerServerComponent currentTime={getValue()?.currentTime}/>
     </div>
   )
 }

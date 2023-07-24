@@ -2,7 +2,7 @@
 
 import {useRouter} from 'next/navigation';
 
-export default async function PaginationTrigger() {
+export default function PaginationTrigger({currentTime}) {
   console.log(222222222, 'batman');
   const router = useRouter()
  
@@ -14,6 +14,7 @@ export default async function PaginationTrigger() {
     <div>
       <input type="text"/>
       <button onClick={handleClick}>page 2</button>
+      <span>{currentTime}</span>
     </div>
   )
 }
